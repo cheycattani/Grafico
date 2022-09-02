@@ -7,25 +7,26 @@ import time as t
 
 tempos = []
 vezes = []
+legenda = []
 vez = 1
+repet = 3
 
-print('Este programa marcará o tempo gasto para digitar qualquer palavra. Você terá que digitá-la 5 vezes')
+print('Este programa marcará o tempo gasto para digitar qualquer palavra. Você terá que digitá-la ' + str(repet) +' vezes')
 
 input('Aperte enter para começar.')
 print('\n')
 
-while vez <= 5:
+while vez <= repet:
         inicio = t.perf_counter()
         input('Digite a palavra: ')
         fim = t.perf_counter()
         tempo = round(fim - inicio, 1)
         tempos.append(tempo)
         vezes.append(vez)
+        qnts_legenda = str(vez) + ' vez'
+        legenda.append(qnts_legenda)
         vez += 1
 
-legenda = ['1 vez', '2 vez', '3 vez', '4 vez', '5 vez']
 plt.xticks(vezes, legenda)
 plt.plot(vezes, tempos)
 plt.show()
-
-
